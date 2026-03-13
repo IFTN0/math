@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matematik 2 – Studieplattform</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Matematik 2 – Provträning</h1>
+        <p>Interaktiv studiehemsida för gymnasiet</p>
+      </div>
+      <div class="topbar-actions">
+        <button id="modeToggle" class="btn">🌙 Mörkt läge</button>
+        <button id="studyModeBtn" class="btn active">Övningsläge</button>
+        <button id="testModeBtn" class="btn">Provläge</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="dashboard card">
+        <div class="stats-grid">
+          <div>
+            <h3>Poäng</h3>
+            <p id="score">0</p>
+          </div>
+          <div>
+            <h3>Rätt / Fel</h3>
+            <p><span id="correctCount">0</span> / <span id="wrongCount">0</span></p>
+          </div>
+          <div>
+            <h3>Klarade frågor</h3>
+            <p><span id="solvedCount">0</span> / <span id="totalCount">0</span></p>
+          </div>
+          <div>
+            <h3>Timer (provläge)</h3>
+            <p id="timer">--:--</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="chapters card">
+        <h2>Kapitel</h2>
+        <div id="chapterTabs" class="tabs"></div>
+        <div id="chapterMeta"></div>
+        <div class="chapter-progress-wrap">
+          <label for="chapterProgress">Kapitelprogress</label>
+          <progress id="chapterProgress" value="0" max="100"></progress>
+          <span id="chapterProgressText">0%</span>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <section class="question-panel card">
+          <h2 id="questionTitle">Fråga</h2>
+          <div class="meta-row">
+            <span id="questionType" class="pill"></span>
+            <span id="questionDifficulty" class="pill"></span>
+          </div>
+          <p id="questionText"></p>
+          <div id="questionExtras"></div>
+          <div id="answerArea"></div>
+
+          <div class="question-actions">
+            <button id="hintBtn" class="btn secondary">Hint</button>
+            <button id="submitBtn" class="btn primary">Svara</button>
+            <button id="nextBtn" class="btn">Nästa fråga</button>
+            <button id="retryWrongBtn" class="btn danger">Försök felaktiga igen</button>
+          </div>
+
+          <div id="feedback" class="feedback"></div>
+          <div id="solution" class="solution"></div>
+        </section>
+
+        <aside class="sidebar card">
+          <h3>Kapitelstatistik</h3>
+          <ul id="chapterStats"></ul>
+          <h3>Interaktiv graf (2.2)</h3>
+          <div class="graph-controls">
+            <label>a <input id="coefA" type="range" min="-4" max="4" step="0.5" value="1" /></label>
+            <label>b <input id="coefB" type="range" min="-10" max="10" step="1" value="0" /></label>
+            <label>c <input id="coefC" type="range" min="-10" max="10" step="1" value="0" /></label>
+            <p id="formulaDisplay">f(x) = x²</p>
+          </div>
+          <canvas id="graphCanvas" width="360" height="260"></canvas>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
